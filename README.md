@@ -43,7 +43,7 @@ PDF content goes here.
 </vmpdf:pdf>
 ```
 
-The meaning of the arguments can be inferred from the mPDF documentation of (http://mpdf1.com/manual/index.php?tid=184 mPDF()) and (http://mpdf1.com/manual/index.php?tid=125 Output()).
+The meaning of the arguments can be inferred from the mPDF documentation of [mPDF()](http://mpdf1.com/manual/index.php?tid=184) and [Output()](http://mpdf1.com/manual/index.php?tid=125).
 
 ### basicUrl ViewHelper
 
