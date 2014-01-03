@@ -65,5 +65,9 @@ This ViewHelper includes html from a remote location. Use this in your Fluid tem
 <vmpdf:remoteContent url="http://my.external.url/">
 ```
 
+Further information
+-------------------
+
+For further information, feel free to contact christoph.fischer@volksmission.de
 
 
