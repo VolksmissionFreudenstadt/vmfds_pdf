@@ -12,7 +12,7 @@ Install
 
 * Create typo3conf/ext/vmfds_pdf.
 
-* (http://www.mpdf1.com Download mPDF) and unpack the archive to typo3conf/ext/vmfds_pdf/lib/mpdf.
+* [Download mPDF](http://www.mpdf1.com) and unpack the archive to typo3conf/ext/vmfds_pdf/lib/mpdf.
 
 * Install the extension using the extension manager.
 
