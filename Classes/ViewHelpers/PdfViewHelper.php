@@ -32,6 +32,7 @@ class PdfViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper 
 	 * @param string $headermargin
 	 * @param string $footermargin
 	 * @param string $orientation
+	 * @param string $css
   	 * @author Christoph Fischer <christoph.fischer@volksmission.de>
      */
     public function render($filename=NULL, 
@@ -46,25 +47,20 @@ class PdfViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper 
     					   $bottommargin=NULL,
     					   $headermargin=NULL,
     					   $footermargin=NULL,
-    					   $orientation=NULL
+    					   $orientation=NULL,
+    					   $css = NULL
 						   ) {
 		$pdf = new \mPDF($filemode, $layout, $defaultfontsize, $defaultfont, $leftmargin, $rightmargin, $topmargin, $bottommargin, $headermargin, $footermargin, $orientation);
-		/*
-    	$pdf = new \mPDF($filemode, 
-    					$layout, 
-    					$defaultfontsize, 
-    					$defaultfont, 
-    					$leftmargin, 
-    					$rightmargin,
-    					$topmargin,
-    					$bottommargin,
-    					$headermargin,
-    					$footermargin,
-    					$orientation,
-						);
-		*/
-		$this->templateVariableContainer->add('mpdf', $pdf);        
-        $pdf->WriteHTML($this->renderChildren());
+		$this->templateVariableContainer->add('mpdf', $pdf);
+
+		$mode = $css ? 2 : 0;
+		if ($css) {
+			$cssFile = TYPO3_site.$css;
+			if (file_exists($cssFile)) {
+				$pdf->WriteHTML(file_get_contents($cssFile), 1);
+			}
+		}
+        $pdf->WriteHTML($this->renderChildren(), $mode);
         $pdf->Output($filename, $destination);
         $this->templateVariableContainer->remove('mpdf');
         exit();
