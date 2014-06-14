@@ -55,7 +55,7 @@ class PdfViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper 
 
 		$mode = $css ? 2 : 0;
 		if ($css) {
-			$cssFile = TYPO3_site.$css;
+			$cssFile = PATH_site.$css;
 			if (file_exists($cssFile)) {
 				$pdf->WriteHTML(file_get_contents($cssFile), 1);
 			}
